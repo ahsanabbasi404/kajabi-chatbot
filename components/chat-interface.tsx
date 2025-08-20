@@ -239,31 +239,31 @@ export function ChatInterface() {
               <h3 className="text-xl font-bold text-foreground mb-2">Chat with Lloyd J Ross</h3>
               <p className="text-muted-foreground text-lg">Proven principles, straight talk, simple steps, and stories to help you master your finances and become time-rich.</p>
               <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto mt-6">
-                 <button 
-                   onClick={() => setInputValue("Improve Money Mindset")}
-                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
-                 >
-                   Improve Money Mindset
-                 </button>
-                 <button 
-                   onClick={() => setInputValue("Reduce Overwhelm")}
-                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
-                 >
-                   Reduce Overwhelm
-                 </button>
-                 <button 
-                   onClick={() => setInputValue("Manage Money")}
-                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
-                 >
-                   Manage Money
-                 </button>
-                 <button 
-                   onClick={() => setInputValue("Learn to Invest")}
-                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
-                 >
-                   Learn to Invest
-                 </button>
-               </div>
+                  <button 
+                    onClick={() => setInput("Improve Money Mindset")}
+                    className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    Improve Money Mindset
+                  </button>
+                  <button 
+                    onClick={() => setInput("Reduce Overwhelm")}
+                    className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    Reduce Overwhelm
+                  </button>
+                  <button 
+                    onClick={() => setInput("Manage Money")}
+                    className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    Manage Money
+                  </button>
+                  <button 
+                    onClick={() => setInput("Learn to Invest")}
+                    className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                  >
+                    Learn to Invest
+                  </button>
+                </div>
             </div>
           )}
 
