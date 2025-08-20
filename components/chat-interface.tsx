@@ -49,7 +49,12 @@ export function ChatInterface() {
       (file) =>
         file.type === "application/pdf" ||
         file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
-        file.type === "application/msword",
+        file.type === "application/msword" ||
+        file.type === "image/png" ||
+        file.type === "image/jpeg" ||
+        file.type === "image/jpg" ||
+        file.type === "image/gif" ||
+        file.type === "image/webp"
     )
 
     const newFiles = validFiles.map((file) => ({
@@ -209,16 +214,16 @@ export function ChatInterface() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-background">
+    <div className="flex flex-col h-full bg-gradient-to-br from-background via-[#127059]/5 to-[#e67e22]/10 dark:from-gray-900 dark:via-[#127059]/10 dark:to-[#e67e22]/20">
       {/* Header */}
-      <div className="border-b bg-card/50 backdrop-blur-sm">
+      <div className="border-b bg-card shadow-sm border-border">
         <div className="flex items-center gap-3 p-4">
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary">
-            <MessageSquare className="w-4 h-4 text-primary-foreground" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[#e67e22] to-[#127059] shadow-lg">
+            <MessageSquare className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="font-semibold text-foreground">Money Mentor Chat</h1>
-            <p className="text-sm text-muted-foreground">Financial Freedom Assistant</p>
+            <h1 className="font-bold text-card-foreground text-lg">Money Mentor Chat</h1>
+            <p className="text-sm text-[#127059] dark:text-[#127059]/80 font-medium">Financial Freedom Assistant</p>
           </div>
         </div>
       </div>
@@ -227,10 +232,13 @@ export function ChatInterface() {
       <ScrollArea ref={scrollAreaRef} className="flex-1 p-4">
         <div className="space-y-4 max-w-4xl mx-auto">
           {messages.length === 0 && (
-            <div className="text-center py-12">
-              <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-foreground mb-2">Hi, I'm your Money Mentor — how can I help you today?</h3>
-              <p className="text-muted-foreground">I specialise in budgeting, saving, investing, and growing your wealth.</p>
+            <div className="text-center py-16">
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#127059] to-[#e67e22]/80 mx-auto mb-4 shadow-lg">
+                <MessageSquare className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Hi, I'm your Money Mentor</h3>
+              <p className="text-muted-foreground text-lg">How can I help you achieve financial freedom today?</p>
+              <p className="text-sm text-[#127059] dark:text-[#127059]/80 mt-2 font-medium">I specialize in budgeting, saving, investing, and growing your wealth.</p>
             </div>
           )}
 
@@ -241,8 +249,10 @@ export function ChatInterface() {
             >
               <div
                 className={cn(
-                  "max-w-[80%] rounded-lg px-4 py-3",
-                  message.role === "user" ? "bg-primary text-white !text-white [&_*]:!text-white [&_*]:text-white" : "bg-muted text-foreground",
+                  "max-w-[80%] rounded-2xl px-4 py-3 shadow-sm",
+                  message.role === "user" 
+                    ? "bg-gradient-to-br from-[#e67e22] to-[#d35400] text-white !text-white [&_*]:!text-white [&_*]:text-white" 
+                    : "bg-card text-card-foreground border border-[#127059]/20 dark:border-[#127059]/30 shadow-md",
                 )}
               >
                 {message.files && message.files.length > 0 && (
@@ -264,12 +274,12 @@ export function ChatInterface() {
                   />
                 ) : message.role === "assistant" && isLoading ? (
                   <div className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span className="text-sm">Thinking...</span>
+                    <Loader2 className="w-4 h-4 animate-spin text-[#127059]" />
+                    <span className="text-sm text-[#127059] font-medium">Thinking...</span>
                   </div>
                 ) : null}
 
-                <div className="text-xs opacity-60 mt-2">{message.timestamp.toLocaleTimeString()}</div>
+                <div className="text-xs opacity-60 mt-2 text-[#127059] dark:text-[#127059]/70">{message.timestamp.toLocaleTimeString()}</div>
               </div>
             </div>
           ))}
@@ -277,19 +287,19 @@ export function ChatInterface() {
       </ScrollArea>
 
       {/* Input Area */}
-      <div className="border-t bg-card/50 backdrop-blur-sm p-4">
+      <div className="border-t bg-card/80 dark:bg-card/90 backdrop-blur-sm shadow-lg p-4 border-border">
         <div className="max-w-4xl mx-auto">
           {/* File Upload Area */}
           {uploadedFiles.length > 0 && (
             <div className="mb-3 flex flex-wrap gap-2">
               {uploadedFiles.map((uploadedFile) => (
-                <Badge key={uploadedFile.id} variant="secondary" className="flex items-center gap-2">
-                  <FileText className="w-3 h-3" />
-                  <span className="text-xs">{uploadedFile.file.name}</span>
+                <Badge key={uploadedFile.id} className="flex items-center gap-2 bg-[#127059]/10 text-[#127059] dark:bg-[#127059]/20 dark:text-[#127059]/90 border border-[#127059]/30 dark:border-[#127059]/50 hover:bg-[#127059]/20 dark:hover:bg-[#127059]/30">
+                  <FileText className="w-3 h-3 text-[#127059] dark:text-[#127059]/90" />
+                  <span className="text-xs font-medium">{uploadedFile.file.name}</span>
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="h-4 w-4 p-0 hover:bg-destructive hover:text-destructive-foreground"
+                    className="h-4 w-4 p-0 hover:bg-[#e67e22] hover:text-white rounded-full transition-colors"
                     onClick={() => removeFile(uploadedFile.id)}
                   >
                     <X className="w-3 h-3" />
@@ -299,8 +309,14 @@ export function ChatInterface() {
             </div>
           )}
 
-          <div className="flex gap-2">
-            <Button size="icon" variant="outline" onClick={() => fileInputRef.current?.click()} disabled={isLoading}>
+          <div className="flex gap-3">
+            <Button 
+              size="icon" 
+              variant="outline" 
+              onClick={() => fileInputRef.current?.click()} 
+              disabled={isLoading} 
+              className="border-[#127059] text-[#127059] dark:border-[#127059]/60 dark:text-[#127059]/90 hover:bg-[#127059] hover:text-white dark:hover:bg-[#127059] dark:hover:text-white h-10 w-10 rounded-full transition-colors"
+            >
               <Paperclip className="w-4 h-4" />
             </Button>
 
@@ -311,13 +327,13 @@ export function ChatInterface() {
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me anything about money..."
                 disabled={isLoading}
-                className="pr-12"
+                className="pr-12 border-[#127059]/40 dark:border-[#127059]/60 dark:bg-gray-800/70 bg-white/80 placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#127059] dark:focus:border-[#127059] focus:ring-2 focus:ring-[#127059] dark:focus:ring-[#127059] focus:ring-offset-1 dark:focus:ring-offset-0 rounded-full h-10 transition-all"
               />
               <Button
                 size="icon"
                 onClick={sendMessage}
                 disabled={isLoading || (!input.trim() && uploadedFiles.length === 0)}
-                className="absolute right-1 top-1 h-8 w-8"
+                className="absolute right-1 top-1 h-8 w-8 bg-gradient-to-br from-[#127059] to-[#0f5a4a] hover:from-[#0f5a4a] hover:to-[#0c483c] text-white rounded-full transition-colors"
               >
                 <Send className="w-4 h-4" />
               </Button>
@@ -327,13 +343,13 @@ export function ChatInterface() {
           <input
             ref={fileInputRef}
             type="file"
-            accept=".pdf,.docx,.doc"
+            accept=".pdf,.docx,.doc,.png,.jpg,.jpeg,.gif,.webp"
             multiple
             onChange={handleFileUpload}
             className="hidden"
           />
 
-          <p className="text-xs text-muted-foreground mt-2 text-center">
+          <p className="text-xs text-[#127059] dark:text-[#127059]/80 mt-3 text-center font-medium">
             Upload relevant financial documents (optional) for tailored advice
           </p>
         </div>

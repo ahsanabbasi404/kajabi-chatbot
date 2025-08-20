@@ -39,14 +39,30 @@ export async function POST(request: NextRequest) {
 
     // Handle file uploads
     const fileIds: string[] = []
+    const imageFiles: File[] = []
     const files = Array.from(formData.entries()).filter(([key]) => key.startsWith("file_"))
 
     for (const [, file] of files) {
       if (file instanceof File) {
+        // Check if it's an image file
+        const isImage = file.type.startsWith('image/')
+        
+        if (isImage) {
+          // Skip image files from file upload - they'll be handled differently
+          imageFiles.push(file)
+          console.log("Skipping image file from file_search:", file.name)
+          continue
+        }
+
         try {
           console.log("Uploading file:", file.name)
+          // Ensure lowercase extension for OpenAI API compatibility
+          const originalName = file.name
+          const lowercaseName = originalName.replace(/\.[^/.]+$/, (match) => match.toLowerCase())
+          const fileWithLowercaseName = new File([file], lowercaseName, { type: file.type })
+          
           const fileFormData = new FormData()
-          fileFormData.append("file", file)
+          fileFormData.append("file", fileWithLowercaseName)
           fileFormData.append("purpose", "assistants")
 
           const fileResponse = await fetch("https://api.openai.com/v1/files", {
@@ -113,13 +129,22 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Build message content with image context
+    let fullMessage = message
+    if (imageFiles.length > 0) {
+      const imageNames = imageFiles.map(img => img.name).join(', ')
+      fullMessage = `${message}
+
+[User has uploaded ${imageFiles.length} image file(s): ${imageNames}]`
+    }
+
     // Add message to thread
     const messageData: any = {
       role: "user",
-      content: message,
+      content: fullMessage,
     }
 
-    // Add file attachments if any
+    // Add file attachments if any (only for non-image files)
     if (fileIds.length > 0) {
       messageData.attachments = fileIds.map((fileId: string) => ({
         file_id: fileId,
