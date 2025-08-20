@@ -222,8 +222,8 @@ export function ChatInterface() {
             <MessageSquare className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="font-bold text-card-foreground text-lg">Money Mentor Chat</h1>
-            <p className="text-sm text-[#127059] dark:text-[#127059]/80 font-medium">Financial Freedom Assistant</p>
+            <h1 className="font-bold text-card-foreground text-lg">AI Money Coach</h1>
+            {/* <p className="text-sm text-[#127059] dark:text-[#127059]/80 font-medium">By Mgot20 pty ltd</p> */}
           </div>
         </div>
       </div>
@@ -236,9 +236,34 @@ export function ChatInterface() {
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#127059] to-[#e67e22]/80 mx-auto mb-4 shadow-lg">
                 <MessageSquare className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Hi, I'm your Money Mentor</h3>
-              <p className="text-muted-foreground text-lg">How can I help you achieve financial freedom today?</p>
-              <p className="text-sm text-[#127059] dark:text-[#127059]/80 mt-2 font-medium">I specialize in budgeting, saving, investing, and growing your wealth.</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Chat with Lloyd J Ross</h3>
+              <p className="text-muted-foreground text-lg">Proven principles, straight talk, simple steps, and stories to help you master your finances and become time-rich.</p>
+              <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto mt-6">
+                 <button 
+                   onClick={() => setInputValue("Improve Money Mindset")}
+                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                 >
+                   Improve Money Mindset
+                 </button>
+                 <button 
+                   onClick={() => setInputValue("Reduce Overwhelm")}
+                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                 >
+                   Reduce Overwhelm
+                 </button>
+                 <button 
+                   onClick={() => setInputValue("Manage Money")}
+                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                 >
+                   Manage Money
+                 </button>
+                 <button 
+                   onClick={() => setInputValue("Learn to Invest")}
+                   className="text-sm bg-[#127059]/10 hover:bg-[#127059]/20 text-[#127059] dark:text-[#127059]/90 dark:bg-[#127059]/20 dark:hover:bg-[#127059]/30 border border-[#127059]/30 dark:border-[#127059]/50 rounded-lg px-3 py-2 transition-colors"
+                 >
+                   Learn to Invest
+                 </button>
+               </div>
             </div>
           )}
 
