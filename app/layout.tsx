@@ -5,23 +5,22 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SLS Pricing Tool - Signage & Graphics Quoting Assistant',
-  description: 'Professional quoting assistant for signage installation, manufacturing, and artwork jobs. Get accurate quotes using official pricing benchmarks and markup rules.',
-  keywords: ['signage', 'graphics', 'quoting', 'installation', 'manufacturing', 'pricing', 'estimates'],
-  authors: [{ name: 'SLS' }],
-  creator: 'SLS',
-  publisher: 'SLS',
-  robots: 'index, follow',
+  title: 'Money Mentor Chat - Financial Freedom Assistant',
+  description: 'Expert guidance on budgeting, saving, investing, and building wealth. Unlock financial freedom with tailored advice.',
+  keywords: ['money', 'finance', 'investing', 'saving', 'budgeting', 'financial freedom', 'wealth'],
+  authors: [{ name: 'Money Mentor' }],
+  creator: 'Money Mentor',
+  publisher: 'Money Mentor',
   openGraph: {
-    title: 'SLS Pricing Tool - Signage & Graphics Quoting Assistant',
-    description: 'Professional quoting assistant for signage installation, manufacturing, and artwork jobs.',
+    title: 'Money Mentor Chat - Financial Freedom Assistant',
+    description: 'Expert guidance on budgeting, saving, investing, and building wealth.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SLS Pricing Tool - Signage & Graphics Quoting Assistant',
-    description: 'Professional quoting assistant for signage installation, manufacturing, and artwork jobs.',
+    title: 'Money Mentor Chat - Financial Freedom Assistant',
+    description: 'Expert guidance on budgeting, saving, investing, and building wealth.',
   },
 }
 

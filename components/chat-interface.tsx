@@ -217,8 +217,8 @@ export function ChatInterface() {
             <MessageSquare className="w-4 h-4 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="font-semibold text-foreground">SLS Pricing Tool</h1>
-            <p className="text-sm text-muted-foreground">Signage & Graphics Quoting Assistant</p>
+            <h1 className="font-semibold text-foreground">Money Mentor Chat</h1>
+            <p className="text-sm text-muted-foreground">Financial Freedom Assistant</p>
           </div>
         </div>
       </div>
@@ -229,8 +229,8 @@ export function ChatInterface() {
           {messages.length === 0 && (
             <div className="text-center py-12">
               <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-foreground mb-2">Hi, this is the SLS Pricing Tool — how can I help you today?</h3>
-              <p className="text-muted-foreground">I'm your professional quoting assistant for signage installation, manufacturing, and artwork jobs.</p>
+              <h3 className="text-lg font-medium text-foreground mb-2">Hi, I'm your Money Mentor — how can I help you today?</h3>
+              <p className="text-muted-foreground">I specialise in budgeting, saving, investing, and growing your wealth.</p>
             </div>
           )}
 
@@ -309,7 +309,7 @@ export function ChatInterface() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Tell me about your signage project..."
+                placeholder="Ask me anything about money..."
                 disabled={isLoading}
                 className="pr-12"
               />
@@ -334,7 +334,7 @@ export function ChatInterface() {
           />
 
           <p className="text-xs text-muted-foreground mt-2 text-center">
-            Upload project documents, sketches, or specifications for accurate quoting
+            Upload relevant financial documents (optional) for tailored advice
           </p>
         </div>
       </div>
